@@ -1,0 +1,72 @@
+//Get the user's choice
+
+const getUserChoice = (userInput) => {
+  userInput = userInput.toLowerCase();
+  if (
+    userInput === "rock" ||
+    userInput === "paper" ||
+    userInput === "scissors" ||
+    userInput === "jesus"
+  ) {
+    return userInput;
+  } else {
+    console.log("dafaq u doin?");
+  }
+};
+
+
+//Get computer's choice
+const getComputerChoice = () => {
+  let ranNum = Math.floor(Math.random() * 3);
+  switch (ranNum) {
+    case 0:
+      return "rock";
+      break;
+    case 1:
+      return "paper";
+      break;
+    case 2:
+      return "scissors";
+      break;
+  }
+};
+
+
+//Determine winner.
+const determineWinner = (userChoice, computerChoice) => {
+  if (userChoice === computerChoice) {
+    return "Tie.";
+  } else if (userChoice === "rock") {
+    if (computerChoice === "paper") {
+      return "Lose.";
+    } else if (computerChoice === "scissors") {
+      return "Win.";
+    }
+  } else if (userChoice === "paper") {
+    if (computerChoice === "scissors") {
+      return "Lose.";
+    } else if (computerChoice === "rock") {
+      return "Win.";
+    }
+  } else if (userChoice === "scissors") {
+    if (computerChoice === "paper") {
+      return "Win.";
+    } else if (computerChoice === "rock") {
+      return "Lose.";
+    }
+  } else if (userChoice === 'jesus') {
+    return 'Win';
+  };
+};
+
+//PlayGame.
+const playGame = () => {
+  let userChoice = getUserChoice('Jesus');
+  let computerChoice = getComputerChoice();
+  console.log(
+    `Your choice is "${userChoice}"", computer's choice is "${computerChoice}".`
+  );
+  console.log(determineWinner(userChoice, computerChoice));
+}
+
+playGame();

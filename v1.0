@@ -1,0 +1,47 @@
+//Get the user's choice
+let userChoice = "Rock";
+console.log(`Your Choice is "${userChoice}".`);
+
+//Get the computer's choice. log: "Computer's choice: ___"
+let compChoice;
+let numChoice = Math.floor(Math.random() * 3);
+switch (numChoice) {
+  case 0:
+    compChoice = "Rock";
+    break;
+  case 1:
+    compChoice = "Scissor";
+    break;
+  case 2:
+    compChoice = "Paper";
+    break;
+}
+console.log(`Computer's choice is "${compChoice}".`);
+
+//Compare the two choices and determine a winner.
+// Inputs "Rock" Output: "You win", "You lose", "It's a draw."
+const result = (userChoice, compChoice) => {
+  if (userChoice === 'Paper' && compChoice === 'Rock') {
+    return 'You win.';
+  } else if (userChoice === 'Paper' && compChoice === 'Scissor') {
+    return 'You lose.';
+  } else if (userChoice === 'Paper' && compChoice === 'Paper') {
+    return 'It\'s a draw.';
+  } else if (userChoice === 'Scissor' && compChoice === 'Paper') {
+    return 'You win.';
+  } else if (userChoice === 'Scissor' && compChoice === 'Rock') {
+    return 'You lose.';
+  } else if (userChoice === 'Scissor' && compChoice === 'Scissor') {
+    return 'It\'s a draw.';
+  } else if (userChoice === 'Rock' && compChoice === 'Scissor') {
+    return 'You win.';
+  } else if (userChoice === 'Rock' && compChoice === 'Paper') {
+    return 'You lose.';
+  } else if (userChoice === 'Rock' && compChoice === 'Rock') {
+    return 'It\'s a draw.';
+  } else {
+    return 'It is a wonderful world.';
+  };
+};
+console.log(result(userChoice, compChoice)); 
+
